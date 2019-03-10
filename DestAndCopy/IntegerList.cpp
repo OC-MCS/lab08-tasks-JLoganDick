@@ -67,7 +67,20 @@ int IntegerList::getElement(int element) const
    }
 }
 
+IntegerList::~IntegerList() {
+	delete  list;
+}
+
 int IntegerList::getNumElements() const
 {
 	return numElements;
+}
+
+IntegerList::IntegerList(const IntegerList & set) {
+	numElements = set.numElements;
+
+	list = new int[numElements];
+	for (int i = 0; i < numElements; i++) {
+		list[i] = set.list[i];
+	}
 }
